@@ -194,7 +194,7 @@ GameObject:
   - component: {fileID: 24440167}
   - component: {fileID: 24440166}
   - component: {fileID: 24440165}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: JumpingBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -302,7 +302,7 @@ GameObject:
   - component: {fileID: 194832851}
   - component: {fileID: 194832850}
   - component: {fileID: 194832849}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: JumpingBox (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -942,6 +942,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
+  groundDrag: 0.5
+  jumpForce: 5
+  jumpCooldown: 1
+  airMultiplier: 1
+  playerHeight: 1
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 1024
+  jumpKey: 32
   orientation: {fileID: 1444702719}
 --- !u!1 &745841305
 GameObject:
@@ -955,7 +964,7 @@ GameObject:
   - component: {fileID: 745841308}
   - component: {fileID: 745841307}
   - component: {fileID: 745841306}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: JumpingBox (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1364,7 +1373,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 953652410}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Platforms
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1402,7 +1411,7 @@ GameObject:
   - component: {fileID: 1273080292}
   - component: {fileID: 1273080291}
   - component: {fileID: 1273080290}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1644,7 +1653,7 @@ GameObject:
   - component: {fileID: 2000726176}
   - component: {fileID: 2000726175}
   - component: {fileID: 2000726174}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: JumpingBox (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

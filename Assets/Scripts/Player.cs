@@ -3,26 +3,46 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private InputManager inputManager;
-    [SerializeField] private float speed = 50f;
-    [SerializeField] private CinemachineCamera freeLookCamera;
+    public float moveSpeed;
+
+    public Transform orientation;
+
+    float horizontalInput;
+    float verticalInput;
+
+    Vector3 moveDirection;
+
+    Rigidbody rb;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
-    private Rigidbody rb;
     void Start()
     {
-        rb = GetComponent<Rigidbody>(); 
-        inputManager.OnMove.AddListener(MovePlayer);
+       rb = GetComponent<Rigidbody>();
+       rb.freezeRotation = true;
+
     }
 
     void Update()
     {
-        transform.forward = freeLookCamera.transform.forward;
-        transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
-
+        MyInput();
     }
 
-    private void MovePlayer(Vector2 input){
-       rb.AddForce(transform.forward * speed);
+    private void FixedUpdate()
+    {
+        MovePlayer();
     }
+
+    private void MyInput()
+    {
+        horizontalInput = Input.GetAxisRaw("Horizontal");
+        verticalInput = Input.GetAxisRaw("Vertical");
+    }
+
+    private void MovePlayer()
+    {
+        moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
+
+        rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+    }
+
 }

@@ -14,4 +14,10 @@ public class CoinRotation : MonoBehaviour
     {
         transform.Rotate(rotation * Time.deltaTime);
     }
+
+    private void OnTriggerEnter(Collider coinTrigger){
+        if(coinTrigger.CompareTag("Player")){
+            Destroy(gameObject);
+        }
+    }   
 }

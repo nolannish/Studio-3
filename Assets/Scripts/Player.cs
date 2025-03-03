@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     public float jumpCooldown;
     public float airMultiplier;
     bool readyToJump;
+    bool readyToDoubleJump;
 
     public float playerHeight;
     public LayerMask whatIsGround;
@@ -33,6 +34,7 @@ public class Player : MonoBehaviour
        rb = GetComponent<Rigidbody>();
        rb.freezeRotation = true;
        readyToJump = true;
+       readyToDoubleJump = true;
 
     }
 
@@ -59,12 +61,19 @@ public class Player : MonoBehaviour
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
-        if(Input.GetKey(jumpKey) && readyToJump && grounded){
-            Debug.Log("space");
-            readyToJump = false;
-            JumpPlayer();
+        if(Input.GetKeyDown(jumpKey) && readyToJump){
+            if(grounded){
+                JumpPlayer();
+                readyToDoubleJump = true;
+            }
+            else if(readyToDoubleJump){
+                JumpPlayer();
+                readyToJump = false;
+                readyToDoubleJump = false;
+            }
             Invoke(nameof(ResetJump), jumpCooldown);
         }
+        
     }
 
     private void MovePlayer()

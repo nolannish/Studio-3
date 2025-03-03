@@ -948,6 +948,7 @@ GameObject:
   - component: {fileID: 684302815}
   - component: {fileID: 684302814}
   - component: {fileID: 684302816}
+  - component: {fileID: 684302817}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1022,6 +1023,23 @@ MonoBehaviour:
     m_Bits: 1024
   jumpKey: 32
   orientation: {fileID: 1444702719}
+--- !u!114 &684302817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684302813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a31d5bbaee287824cb0f3a65fed1eed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orientation: {fileID: 1444702719}
+  playerCam: {fileID: 815849392}
+  dashForce: 5
+  dashUpwardForce: 0
+  dashKey: 304
 --- !u!1 &737075142
 GameObject:
   m_ObjectHideFlags: 0
@@ -1186,7 +1204,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: d93954a940d2f5743992d95434fb6179, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.65
+      value: 4.34
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d93954a940d2f5743992d95434fb6179, type: 3}
       propertyPath: m_LocalPosition.y
